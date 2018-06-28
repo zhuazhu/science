@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import mejust.frame.data.annotation.ServiceUrl;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import zhuazhu.science.BuildConfig;
 import zhuazhu.science.data.db.model.Category;
 import zhuazhu.science.mvp.index.model.ArticleList;
@@ -40,4 +41,13 @@ public interface ApiService {
      */
     @GET("tree/json")
     Observable<ResponseData<List<Category>>> getCategorys();
+
+    /**
+     * 获取分类文章列表
+     * @param page
+     * @param cid
+     * @return
+     */
+    @GET("article/list/{page}/json")
+    Observable<ResponseData<ArticleList>> getArticleData(@Path("page") int page, @Query("cid")int cid);
 }

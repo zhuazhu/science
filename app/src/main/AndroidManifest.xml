@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.main.MainActivity" />
-        <activity android:name=".mvp.childrencategory.view.ChildrenCategoryActivity"></activity>
+        <activity android:name=".mvp.childrencategory.view.ChildrenCategoryActivity" />
+        <activity android:name=".mvp.web.view.WebViewActivity"></activity>
     </application>
 
 </manifest>

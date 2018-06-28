@@ -4,7 +4,6 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import mejust.frame.mvp.BaseContract;
-import zhuazhu.science.mvp.index.adapter.IndexAdapter;
 import zhuazhu.science.mvp.index.model.ArticleBean;
 import zhuazhu.science.mvp.index.model.ArticleList;
 import zhuazhu.science.mvp.index.model.BannerBean;

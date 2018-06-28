@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import com.jkb.fragment.rigger.annotation.Puppet;
 import com.zhouwei.mzbanner.MZBannerView;
@@ -16,6 +15,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import mejust.frame.mvp.view.BasePresenterFragment;
+import mejust.frame.widget.adapter.RecyclerAdapter;
 import mejust.frame.widget.refresh.OnRefreshListener;
 import mejust.frame.widget.refresh.RefreshLayoutWrapper;
 import zhuazhu.science.R;
@@ -23,9 +23,10 @@ import zhuazhu.science.app.ScienceApp;
 import zhuazhu.science.di.module.IndexModule;
 import zhuazhu.science.mvp.index.IndexContract;
 import zhuazhu.science.mvp.index.adapter.BannerCreator;
-import zhuazhu.science.mvp.index.adapter.IndexAdapter;
+import zhuazhu.science.mvp.index.adapter.ArtitcleAdapter;
 import zhuazhu.science.mvp.index.model.ArticleBean;
 import zhuazhu.science.mvp.index.model.BannerBean;
+import zhuazhu.science.mvp.web.view.WebViewActivity;
 
 /**
  * @author zhuazhu
@@ -42,7 +43,7 @@ public class IndexFragment extends BasePresenterFragment<IndexContract.Presenter
     private View mHeaderView;
 
     @Inject
-    IndexAdapter mIndexAdapter;
+    ArtitcleAdapter mArtitcleAdapter;
     @Inject
     BannerCreator mBannerCreator;
 
@@ -94,11 +95,12 @@ public class IndexFragment extends BasePresenterFragment<IndexContract.Presenter
         mBannerView.setBannerPageClickListener((view, i) -> {
             //TODO banner图点击事件
         });
-        mIndexAdapter.setHeaderView(mHeaderView);
+        mArtitcleAdapter.setHeaderView(mHeaderView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecycler.setLayoutManager(layoutManager);
-        mRecycler.setAdapter(mIndexAdapter);
+        mRecycler.setAdapter(mArtitcleAdapter);
+        mArtitcleAdapter.setOnItemClickListener((RecyclerAdapter.OnItemClickListener<ArticleBean>) (id, articleBean, position) -> WebViewActivity.start(getActivity(),articleBean.getLink()));
     }
 
     @Override
@@ -117,12 +119,12 @@ public class IndexFragment extends BasePresenterFragment<IndexContract.Presenter
     public void setBanners(List<BannerBean> banners) {
         mBannerView.setPages(banners, mBannerCreator);
         mBannerView.start();
-        mIndexAdapter.notifyDataSetChanged();
+        mArtitcleAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void setAdapterData(List<ArticleBean> articleBeans) {
-        mIndexAdapter.autoUpdateList(articleBeans);
+        mArtitcleAdapter.autoUpdateList(articleBeans);
     }
 
     @Override

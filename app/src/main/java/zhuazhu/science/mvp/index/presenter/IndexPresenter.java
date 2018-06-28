@@ -4,16 +4,10 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import mejust.frame.FrameManager;
-import mejust.frame.mvp.BaseContract;
 import mejust.frame.mvp.presenter.BasePresenter;
 import mejust.frame.net.HttpObserver;
-import mejust.frame.net.NetManager;
 import zhuazhu.science.mvp.index.IndexContract;
-import zhuazhu.science.mvp.index.adapter.IndexAdapter;
-import zhuazhu.science.mvp.index.model.ArticleBean;
 import zhuazhu.science.mvp.index.model.ArticleList;
 import zhuazhu.science.mvp.index.model.BannerBean;
 import zhuazhu.science.mvp.index.model.IndexModel;

@@ -6,8 +6,6 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import mejust.frame.FrameManager;
-import mejust.frame.common.image.IImageLoadManager;
 import mejust.frame.data.annotation.Adapter;
 import mejust.frame.widget.adapter.BaseViewHolder;
 import mejust.frame.widget.adapter.RecyclerAdapter;
@@ -18,10 +16,10 @@ import zhuazhu.science.mvp.index.model.ArticleBean;
 /**
  * @author zhuazhu
  **/
-@Adapter(layout = R.layout.item_index, holder = IndexAdapter.ViewHolder.class)
-public class IndexAdapter extends RecyclerAdapter<ArticleBean, IndexAdapter.ViewHolder> {
+@Adapter(layout = R.layout.item_article, holder = ArtitcleAdapter.ViewHolder.class)
+public class ArtitcleAdapter extends RecyclerAdapter<ArticleBean, ArtitcleAdapter.ViewHolder> {
 
-    public IndexAdapter(IPageControl pageControl) {
+    public ArtitcleAdapter(IPageControl pageControl) {
         super(pageControl);
     }
 

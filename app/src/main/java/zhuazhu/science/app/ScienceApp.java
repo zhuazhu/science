@@ -2,19 +2,18 @@ package zhuazhu.science.app;
 
 import android.app.Application;
 
-import com.google.gson.GsonBuilder;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.FalsifyFooter;
 
-import mejust.frame.BuildConfig;
 import mejust.frame.FrameManager;
 import mejust.frame.common.image.ImageConfig;
 import mejust.frame.data.FrameConfig;
 import mejust.frame.di.component.FrameComponent;
 import mejust.frame.net.config.NetConfig;
 import mejust.frame.widget.title.TitleBarConfig;
+import zhuazhu.science.BuildConfig;
 import zhuazhu.science.R;
 import zhuazhu.science.di.component.AppComponent;
 import zhuazhu.science.di.component.DaggerAppComponent;
@@ -32,7 +31,6 @@ public class ScienceApp extends Application {
         });
         //设置全局的Footer构建器
         SmartRefreshLayout.setDefaultRefreshFooterCreater((context, layout) -> {
-//            layout.setFooterTriggerRate(0);
             return new FalsifyFooter(context);
         });
     }
@@ -45,6 +43,7 @@ public class ScienceApp extends Application {
     private void initFrameConfig(){
         ImageConfig imageConfig = new ImageConfig();
         NetConfig netConfig = new NetConfig();
+        netConfig.setHttpLogTag("Science");
         netConfig.setResponseCodeSuccess("0");
         FrameConfig frameConfig = new FrameConfig();
         frameConfig.setDebug(BuildConfig.DEBUG);
