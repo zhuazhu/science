@@ -29,9 +29,9 @@ public class LauncherActivity extends BaseActivity {
     }
     private void initView(){
         mImmersionBar.hideBar(BarHide.FLAG_HIDE_BAR).init();
-//        Flowable.timer(3, TimeUnit.SECONDS).subscribe(aLong -> {
-//            MainActivity.start(LauncherActivity.this);
-//            finish();
-//        });
+        Flowable.timer(3, TimeUnit.SECONDS).subscribe(aLong -> {
+            MainActivity.start(LauncherActivity.this);
+            finish();
+        });
     }
 }

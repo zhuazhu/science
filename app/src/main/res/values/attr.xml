@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BezierView">
+        <attr name="arcRadius" format="dimension"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="arcBackground" format="color"/>
+    </declare-styleable>
+</resources>

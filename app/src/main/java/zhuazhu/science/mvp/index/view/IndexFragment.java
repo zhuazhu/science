@@ -95,7 +95,11 @@ public class IndexFragment extends BasePresenterFragment<IndexContract.Presenter
         mBannerView.setBannerPageClickListener((view, i) -> {
             //TODO banner图点击事件
         });
-        mArtitcleAdapter.setHeaderView(mHeaderView);
+//        mArtitcleAdapter.setHeaderView(mHeaderView);
+
+        View footer = View.inflate(getActivity(), R.layout.layout_empty_footer, null);
+        mArtitcleAdapter.setFooterView(footer);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecycler.setLayoutManager(layoutManager);

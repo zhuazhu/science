@@ -68,6 +68,9 @@ public class CategoryFragment extends BasePresenterFragment<CategoryContract.Pre
 
     @Override
     protected void initView() {
+        View footer = View.inflate(getActivity(), R.layout.layout_empty_footer, null);;
+        mCategoryAdapter.setFooterView(footer);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         SpacesItemDecoration decoration = new SpacesItemDecoration(0,1,R.color.c_dedede);
