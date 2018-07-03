@@ -9,6 +9,8 @@ import butterknife.OnClick;
 import mejust.frame.mvp.view.BaseActivity;
 import mejust.frame.mvp.view.BasePresenterActivity;
 import zhuazhu.science.R;
+import zhuazhu.science.app.ScienceApp;
+import zhuazhu.science.di.module.LoginModule;
 import zhuazhu.science.mvp.login.LoginContract;
 
 public class LoginActivity extends BasePresenterActivity<LoginContract.Presenter> implements LoginContract.View {
@@ -28,7 +30,7 @@ public class LoginActivity extends BasePresenterActivity<LoginContract.Presenter
 
     @Override
     protected void injectComponent() {
-
+        ScienceApp.appComponent().loginComponent(new LoginModule(this)).inject(this);
     }
 
     @Override
