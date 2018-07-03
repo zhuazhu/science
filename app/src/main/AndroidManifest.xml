@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".mvp.main.MainActivity" />
         <activity android:name=".mvp.childrencategory.view.ChildrenCategoryActivity" />
-        <activity android:name=".mvp.web.view.WebViewActivity"></activity>
+        <activity android:name=".mvp.web.view.WebViewActivity" />
+        <activity android:name=".mvp.login.view.LoginActivity"></activity>
     </application>
 
 </manifest>

@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 
 import com.jkb.fragment.rigger.annotation.Puppet;
 
+import butterknife.OnClick;
 import mejust.frame.mvp.view.BaseFragment;
 import zhuazhu.science.R;
+import zhuazhu.science.mvp.login.view.LoginActivity;
 
 /**
  * @author zhuazhu
@@ -32,5 +34,13 @@ public class MineFragment extends BaseFragment {
     @Override
     protected int getLayoutId(@Nullable Bundle savedInstanceState) {
         return R.layout.fragment_mine;
+    }
+
+    /**
+     * 点击登录按钮
+     */
+    @OnClick(R.id.login)
+    protected void clickLogin(){
+        LoginActivity.start(getActivity());
     }
 }

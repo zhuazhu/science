@@ -10,6 +10,7 @@ import zhuazhu.science.di.module.ArticleModule;
 import zhuazhu.science.di.module.CategoryModule;
 import zhuazhu.science.di.module.ChildrenCategoryModule;
 import zhuazhu.science.di.module.IndexModule;
+import zhuazhu.science.di.module.LoginModule;
 import zhuazhu.science.di.module.WebViewModule;
 
 /**
@@ -27,6 +28,8 @@ public interface AppComponent {
     ArticleComponent articleComponent(ArticleModule articleModule);
 
     WebViewComponent webViewComponent(WebViewModule webViewModule);
+
+    LoginComponent loginComponent(LoginModule loginModule);
     @Component.Builder
     interface Builder{
         @BindsInstance
